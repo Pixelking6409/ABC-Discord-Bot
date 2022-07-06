@@ -3,8 +3,8 @@ const { Schema } = require("mongoose")
 
 const UserProfile = new Schema({
     User: { type: String, require: true, unique: true },
-    Balance: Number,
-    Bank: Number,
+    Fails: Number,
+    Success: Number,
 });
 
 module.exports = mongoose.model("UserProfile", UserProfile);

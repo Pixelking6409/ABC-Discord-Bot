@@ -4,8 +4,7 @@ const mongoose = require('mongoose');
 
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES,Intents.FLAGS.GUILD_MEMBERS] });
 client.commands = new Collection();
-client.config = require("./config.json")
-client.prefix = client.config.prefix
+client.prefix = "-"
 
 const commandFiles = fs.readdirSync('./commands/').filter(f => f.endsWith('.js'))
 for (const file of commandFiles) {
