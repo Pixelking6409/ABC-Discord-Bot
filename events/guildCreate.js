@@ -5,7 +5,7 @@ module.exports = {
     name: 'guildCreate',
     execute(guild, client) {
         const channel = guild.channels.cache.first()
-        const WelcomeEmbed = MessageEmbed()
+        const WelcomeEmbed = new MessageEmbed()
             .setTitle("Welcome to the ABC Discord Bot.")
             .setDescription("Somethings to do before starting.")
             .addField("`-prefix`", "Use this to set a prefix default is `!`", true)
