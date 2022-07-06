@@ -4,7 +4,7 @@ const ServerInfo = require("../schema/ServerInfo");
 module.exports = {
     name: 'guildCreate',
     execute(guild, client) {
-        const channel = guild.channels.cache.first()
+        const channel = guild.channels.cache.filter(chx => chx.type === "GUILD_TEXT").find(x => x.position === 0);
         const WelcomeEmbed = new MessageEmbed()
             .setTitle("Welcome to the ABC Discord Bot.")
             .setDescription("Somethings to do before starting.")
