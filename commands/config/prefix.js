@@ -9,8 +9,13 @@ module.exports = {
     type: "utility",
 
     execute(message, args, client) {
-        const GuildInfo = 
+        ServerInfo.updateOne({ GuildId: GuildId }, { Prefix: args[0]}, { upsert: true })
+        
+        const SuccessEmbed = new MessageEmbed()
+            .setTitle(`✅ Prefix was set to \`${args[0]}\``)
+            .setFooter({ text: `Requested by ${message.author.username}`, iconURL: message.author.displayAvatarURL() })
+            .setColor("GREEN")
 
-        if (!args) return message.reply(`The server prefix is \`${}\``)
+        message.reply({ embeds: [SuccessEmbed] })
     }
 }
