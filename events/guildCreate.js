@@ -14,16 +14,14 @@ module.exports = {
             .setFooter({ text: "Thank you for using this bot" })
             .setColor("RED")
 
-        if (!ServerInfo.exists({ GuildId: guild.id })) {
-            const guildData = await ServerInfo.create({
-                GuildId: guild.id,
-                Words: [],
-                Correct: 0,
-                Restarts: 0,
-                BotChannel: 0,
-                Prefix: "-"
-            })
-        }
+        const guildData = await ServerInfo.create({
+            GuildId: guild.id,
+            Words: [],
+            Correct: 0,
+            Restarts: 0,
+            BotChannel: 0,
+            Prefix: "-"
+        })
 
         console.log(guild.id + " data created!")
         channel.send({ embeds: [WelcomeEmbed] })
