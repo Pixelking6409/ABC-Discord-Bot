@@ -6,7 +6,6 @@ module.exports = {
     async execute(guild, client) {
         const channel = guild.channels.cache.filter(chx => chx.type === "GUILD_TEXT").find(x => x.position === 0);
         const WelcomeEmbed = new MessageEmbed()
-            .setTitle("Welcome to the ABC Discord Bot.")
             .setDescription("Somethings to do before starting.")
             .addField("`-prefix`", `Use this to set a prefix default is \`${client.prefix}\``, true)
             .addField("`-setchannel`", "Set a channel to start using the bot!", true)
@@ -18,6 +17,7 @@ module.exports = {
 
         if (guildExist) {
             console.log("Guild already exists!")
+            WelcomeEmbed.setTitle("Welcome to the ABC Discord Bot.")
         } else {
             const guildData = await ServerInfo.create({
                 GuildId: guild.id,
@@ -29,6 +29,7 @@ module.exports = {
             })
     
             console.log(guild.id + " data created!")
+            WelcomeEmbed.setTitle("Welcome back to the ABC Discord Bot.")
         }
 
         channel.send({ embeds: [WelcomeEmbed] })
