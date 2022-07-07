@@ -8,8 +8,8 @@ module.exports = {
     aliases: ["setprefix"],
     type: "utility",
 
-    execute(message, args, client) {
-        let GuildInfo = ServerInfo.findOneAndUpdate({ GuildId: message.guild.id }, { Prefix: args[0] });
+    async execute(message, args, client) {
+        let GuildInfo = await ServerInfo.findOneAndUpdate({ GuildId: message.guild.id }, { Prefix: args[0] });
 
         const SuccessEmbed = new MessageEmbed()
             .setTitle(`✅ Prefix was set to \`${GuildInfo.Prefix}\``)
