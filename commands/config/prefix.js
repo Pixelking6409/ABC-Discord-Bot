@@ -9,10 +9,10 @@ module.exports = {
     type: "utility",
 
     execute(message, args, client) {
-        ServerInfo.updateOne({ GuildId: GuildId }, { Prefix: args[0]}, { upsert: true })
-        
+        let GuildInfo = ServerInfo.findOneAndUpdate({ GuildId: message.guild.id }, { Prefix: args[0] });
+
         const SuccessEmbed = new MessageEmbed()
-            .setTitle(`✅ Prefix was set to \`${args[0]}\``)
+            .setTitle(`✅ Prefix was set to \`${GuildInfo.Prefix}\``)
             .setFooter({ text: `Requested by ${message.author.username}`, iconURL: message.author.displayAvatarURL() })
             .setColor("GREEN")
 
