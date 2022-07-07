@@ -17,7 +17,7 @@ module.exports = {
 
         if (guildExist) {
             console.log("Guild already exists!")
-            WelcomeEmbed.setTitle("Welcome to the ABC Discord Bot.")
+            WelcomeEmbed.setTitle("Welcome back, we are glad to see you!")
         } else {
             const guildData = await ServerInfo.create({
                 GuildId: guild.id,
@@ -29,7 +29,7 @@ module.exports = {
             })
     
             console.log(guild.id + " data created!")
-            WelcomeEmbed.setTitle("Welcome back to the ABC Discord Bot.")
+            WelcomeEmbed.setTitle("Welcome to the ABC Discord Bot.")
         }
 
         channel.send({ embeds: [WelcomeEmbed] })
