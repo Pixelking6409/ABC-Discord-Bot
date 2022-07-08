@@ -14,7 +14,7 @@ module.exports = {
         let GuildInfo = await ServerInfo.findOneAndUpdate({ GuildId: message.guild.id }, { BotChannel: newBotChannel });
 
         const SuccessEmbed = new MessageEmbed()
-            .setTitle(`✅ Bots channel was set to <#${newBotChannel}>`)
+            .setTitle(`✅ Bots channel was set to ${newBotChannel}`)
             .setFooter({ text: `Requested by ${message.author.username}`, iconURL: message.author.displayAvatarURL() })
             .setColor("GREEN")
 

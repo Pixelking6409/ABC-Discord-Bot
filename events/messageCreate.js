@@ -6,7 +6,9 @@ const ServerInfo = require("../schema/ServerInfo")
 module.exports = {
     name: 'messageCreate',
     async execute(message, client) {
-        const prefix = client.prefix
+        let GuildInfo = await ServerInfo.findOne({ GuildId: message.guild.id });
+
+        const prefix = GuildInfo.Prefix || client.prefix
         const args = message.content.slice(prefix.length).trim().split(/ +/g);
         const commandName = args.shift().toLowerCase();
         if (message.content.charAt(0) != prefix) return;
