@@ -9,10 +9,9 @@ module.exports = {
     type: "utility",
 
     async execute(message, args, client) {
-
-        try {
-            let newBotChannel = await message.guild.channels.cache.get(args[0].substring(2).substring(0,18))
-        } catch(e) {
+        let newBotChannel = await message.guild.channels.cache.get(args[0].substring(2).substring(0,18))
+       
+        if (!newBotChannel) {
             const ErrorEmbed = new MessageEmbed()
                 .setTitle(`❌ Please mention the channel`)
                 .setFooter({ text: `Requested by ${message.author.username}`, iconURL: message.author.displayAvatarURL() })
@@ -25,7 +24,7 @@ module.exports = {
         console.log(newBotChannel)
         let GuildInfo = await ServerInfo.findOneAndUpdate({ GuildId: message.guild.id }, { BotChannel: newBotChannel });
 
-        const SuccessEmbed = new MessageEmbed()
+        const SuccessEmbed = new MessageEmbed() 
             .setTitle(`✅ Bots channel was set to ${newBotChannel}`)
             .setFooter({ text: `Requested by ${message.author.username}`, iconURL: message.author.displayAvatarURL() })
             .setColor("GREEN")
