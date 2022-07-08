@@ -1,5 +1,5 @@
 const { MessageEmbed } = require("discord.js");
-const ServerInfo = require(".../schema/ServerInfo");
+const ServerInfo = require(".../schema/ServerInfo.js");
 
 module.exports = {
     name: "prefix",
