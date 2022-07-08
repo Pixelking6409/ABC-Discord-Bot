@@ -7,7 +7,7 @@ module.exports = {
         const channel = guild.channels.cache.filter(chx => chx.type === "GUILD_TEXT").find(x => x.position === 0);
         const WelcomeEmbed = new MessageEmbed()
             .setDescription("Somethings to do before starting.")
-            .addField("`-prefix`", `Use this to set a prefix default is \`${client.prefix}\``, true)
+            .addField("`-setprefix`", `Use this to set a prefix default is \`${client.prefix}\``, true)
             .addField("`-setchannel`", "Set a channel to start using the bot!", true)
             .setTimestamp()
             .setFooter({ text: "Thank you for using this bot" })
