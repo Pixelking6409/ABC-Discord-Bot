@@ -17,6 +17,7 @@ module.exports = {
             .setTitle(`✅ Bots channel was set to ${newBotChannel}`)
             .setFooter({ text: `Requested by ${message.author.username}`, iconURL: message.author.displayAvatarURL() })
             .setColor("GREEN")
+            .setTimestamp()
 
         message.reply({ embeds: [SuccessEmbed] })
     }

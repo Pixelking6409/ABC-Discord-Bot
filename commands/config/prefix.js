@@ -14,6 +14,7 @@ module.exports = {
             .setTitle(`✅ Prefix was set to \`${args[0]}\``)
             .setFooter({ text: `Requested by ${message.author.username}`, iconURL: message.author.displayAvatarURL() })
             .setColor("GREEN")
+            .setTimestamp()
 
         message.reply({ embeds: [SuccessEmbed] })
     }
